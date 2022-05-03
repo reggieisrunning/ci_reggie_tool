@@ -80,6 +80,7 @@ if __name__ == '__main__':
         else:
             other_issue_list.append(issue_item)
 
+
     #for item in product_issue_list:
     #    print(item)
 
