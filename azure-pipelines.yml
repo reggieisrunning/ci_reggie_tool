@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
+- script: echo $(reggie_var_group_1_var_2)
   displayName: 'Run a one-line script'
 
 - script: |
