@@ -64,6 +64,8 @@ if __name__ == '__main__':
         all_issue_list.extend(issue_list)
     """
 
+    """
+    # iccen和我的issue
     issue_list = get_github_issue_list(owner="Tencent", repo="bk-ci")
 
     product_issue_list = []
@@ -72,19 +74,15 @@ if __name__ == '__main__':
     for issue_item in issue_list:
         if re.search("kind/feat/product", issue_item[2]) or re.search("review needed", issue_item[2]) or re.search(
                 "kind/enhancement", issue_item[2]):
-            if issue_item[3] == "iccengan" or issue_item[3] == "reggiezhou" or re.search("iccengan",
+            if issue_item[3] == "iccengan" or issue_item[3] == "reggieisrunning" or re.search("iccengan",
                                                                                          issue_item[4]) or re.search(
-                "reggiezhou", issue_item[4]):
+                "reggieisrunning", issue_item[4]):
                     will_handle_issue_list.append(issue_item)
 
         else:
             other_issue_list.append(issue_item)
 
-
-    #for item in product_issue_list:
-    #    print(item)
-
     for item in will_handle_issue_list:
         print(item)
-    print(len(product_issue_list))
-    print(len(other_issue_list))
+
+    """
