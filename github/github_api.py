@@ -25,8 +25,17 @@ def get_github_issue_list(owner: str="reggieisrunning", repo: str="PyDummyPlugin
                 issue_number, issue_title, = issue_item["number"], issue_item["title"]
                 issue_labels = ",".join(([x["name"] for x in issue_item["labels"]]))
                 issue_url = issue_item["html_url"]
+                issue_created_at = issue_item["created_at"]
 
-                issue_list.append((issue_number, issue_title, issue_labels, issue_assignee, issue_assignees, issue_url))
+                issue_list.append({
+                    "issue_number": issue_number,
+                    "issue_title": issue_title,
+                    "issue_labels": issue_labels,
+                    "issue_assignee": issue_assignee,
+                    "issue_assignees": issue_assignees,
+                    "issue_url": issue_url,
+                    "issue_created_at": issue_created_at
+                })
             except Exception as e:
                 with open("a.txt", "a") as fd:
                     fd.write(json.dumps(issue_item))
