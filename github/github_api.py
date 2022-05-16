@@ -21,7 +21,7 @@ def get_github_issue_list(owner: str="reggieisrunning", repo: str="PyDummyPlugin
         for issue_item in result:
             try:
                 issue_assignee = issue_item["assignee"]["login"] if issue_item["assignee"] is not None else None
-                issue_assignees = ",".join(([x["login"] for x in issue_item["assignees"]])) if issue_item["assignees"] is not [] else []
+                issue_assignees = ",".join(([x["login"] for x in issue_item["assignees"]])) if issue_item["assignees"] is not [] else None
                 issue_number, issue_title, = issue_item["number"], issue_item["title"]
                 issue_labels = ",".join(([x["name"] for x in issue_item["labels"]]))
                 issue_url = issue_item["html_url"]
