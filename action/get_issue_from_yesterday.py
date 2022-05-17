@@ -13,7 +13,7 @@ if __name__ == '__main__':
     print(since_time)
     issue_list = github_api.get_github_issue_list(owner="Tencent", repo="bk-ci", since=since_time)
 
-    shutil.copyfile("../get_issue_from_yesterday_email.tpl",
+    shutil.copyfile("../notice_template/get_issue_from_yesterday_email.tpl",
                     "../email/get_issue_from_yesterday_email_{}.html".format(datetime.today().strftime("%Y%m%d")))
     with open("../email/get_issue_from_yesterday_email_{}.html".format(datetime.today().strftime("%Y%m%d")), "a") as fd:
         for issue_item in issue_list:
