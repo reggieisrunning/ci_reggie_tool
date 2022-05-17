@@ -3,7 +3,7 @@ sys.path.append("..")
 from github import github_api
 from datetime import *
 from dateutil import parser
-
+import shutil
 
 if __name__ == '__main__':
 
@@ -13,7 +13,28 @@ if __name__ == '__main__':
     print(since_time)
     issue_list = github_api.get_github_issue_list(owner="Tencent", repo="bk-ci", since=since_time)
 
-    for issue_item in issue_list:
-        issue_created_at = parser.parse(issue_item["issue_created_at"])
-        if issue_created_at.replace(tzinfo=None) > since_datetime:
-            print(issue_item)
+    shutil.copyfile("../get_issue_from_yesterday_email.tpl",
+                    "../email/get_issue_from_yesterday_email_{}.html".format(datetime.today().strftime("%Y%m%d")))
+    with open("../email/get_issue_from_yesterday_email_{}.html".format(datetime.today().strftime("%Y%m%d")), "a") as fd:
+        for issue_item in issue_list:
+
+            issue_created_at = parser.parse(issue_item["issue_created_at"])
+            if issue_created_at.replace(tzinfo=None) > since_datetime:
+                fd.write("    <tr>\n")
+                issue_number = issue_item["issue_number"]
+                issue_title = issue_item["issue_title"]
+                issue_labels = issue_item["issue_labels"]
+                issue_assignee = issue_item["issue_assignee"]
+                issue_assignees = issue_item["issue_assignees"]
+                issue_url = issue_item["issue_url"]
+                issue_created_at_time = issue_created_at.strftime("%Y-%m-%d %H:%M:%S")
+                fd.write("      <td>{}</td>\n".format(str(issue_number)))
+                fd.write("      <td>{}</td>\n".format(str(issue_title)))
+                fd.write("      <td>{}</td>\n".format(str(issue_labels)))
+                fd.write("      <td>{}</td>\n".format(str(issue_assignee)))
+                fd.write("      <td>{}</td>\n".format(str(issue_assignees)))
+                fd.write("      <td>{}</td>\n".format(str(issue_url)))
+                fd.write("      <td>{}</td>\n".format(str(issue_created_at_time)))
+                fd.write("    </tr>\n")
+                print(issue_item)
+        fd.write("</body>")
