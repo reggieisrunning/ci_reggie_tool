@@ -7,7 +7,7 @@
 　　</tr>
 
 　</table>
-  <table border="1" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
+  <table align="center" border="1" width="95%" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
     <tr>
       <th>issue number</th>
       <th>标题</th>
