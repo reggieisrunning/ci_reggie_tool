@@ -7,7 +7,11 @@ import shutil
 
 if __name__ == '__main__':
 
-    since_datetime = datetime.today() - timedelta(days=1)
+    since_datetime = datetime.today().astimezone() - timedelta(days=2)
+    since_datetime2 = datetime.today().astimezone() - timedelta(days=1)
+    # since_datetime = datetime(2022, 6, 3, 8, 0, 0, 0).astimezone() - timedelta(days=2)
+    # since_datetime2 = datetime(2022, 6, 3, 8, 0, 0, 0).astimezone() - timedelta(days=1)
+    print(since_datetime, since_datetime2)
     since_datetime_midnight = datetime.combine(since_datetime, datetime.min.time())
     since_time = since_datetime_midnight.strftime('%Y-%m-%dT%H:%M:%S.%f%z')
     print(since_time)
@@ -19,7 +23,8 @@ if __name__ == '__main__':
         for issue_item in issue_list:
 
             issue_created_at = parser.parse(issue_item["issue_created_at"])
-            if issue_created_at.replace(tzinfo=None) > since_datetime:
+            #if issue_created_at.replace(tzinfo=None) > since_datetime2:
+            if issue_created_at > since_datetime2:
                 fd.write("    <tr>\n")
                 issue_number = issue_item["issue_number"]
                 issue_title = issue_item["issue_title"]

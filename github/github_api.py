@@ -13,8 +13,13 @@ def get_github_issue_list(owner: str="reggieisrunning", repo: str="PyDummyPlugin
     if "page" not in params:
         params["page"] = 1
 
+    with open("../git_token", "r") as fd:
+        git_token = fd.read()
+
+    headers = {"Authorization": "token {}".format(git_token)}
+
     while True:
-        rsp = requests.get(base_api_url, params=params, auth=("reggieisrunning",""))
+        rsp = requests.get(base_api_url, headers=headers, params=params)
         result = rsp.json()
         if len(result) == 0:
             break
@@ -37,18 +42,20 @@ def get_github_issue_list(owner: str="reggieisrunning", repo: str="PyDummyPlugin
                     "issue_created_at": issue_created_at
                 })
             except Exception as e:
-                with open("a.txt", "a") as fd:
-                    fd.write(json.dumps(issue_item))
-                    fd.write("\n")
                 print(e)
+                print(result)
+
 
         if len(result) < 100:
             break
         params["page"]+=1
 
+
     return issue_list
 
 if __name__ == '__main__':
+
+    print(get_github_issue_list())
 
     """
     filter_list = [
