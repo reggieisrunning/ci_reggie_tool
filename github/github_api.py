@@ -2,9 +2,10 @@ import requests
 import time
 import re
 import json
+from utils.log_utils import logger
+
 
 def get_github_issue_list(owner: str="reggieisrunning", repo: str="PyDummyPlugin", **kwargs) -> list:
-
 
     base_api_url = "https://api.github.com/repos/{owner}/{repo}/issues".format(owner=owner, repo=repo)
     issue_list = []
@@ -43,8 +44,8 @@ def get_github_issue_list(owner: str="reggieisrunning", repo: str="PyDummyPlugin
                     "issue_url": issue_url,
                     "issue_created_at": issue_created_at
                 })
-            except Exception as e:
-                print(e)
+            except Exception as ex:
+                logger.exception(ex)
                 print(result)
 
 
