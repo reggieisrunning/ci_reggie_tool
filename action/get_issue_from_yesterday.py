@@ -43,4 +43,3 @@ if __name__ == '__main__':
                 fd.write("    </tr>\n")
                 print(issue_item)
         fd.write("</body>")
-
