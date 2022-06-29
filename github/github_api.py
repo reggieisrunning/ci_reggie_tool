@@ -1,3 +1,5 @@
+import sys
+sys.path.append("..")
 import requests
 import time
 import re
@@ -56,9 +58,37 @@ def get_github_issue_list(owner: str="reggieisrunning", repo: str="PyDummyPlugin
 
     return issue_list
 
+
+def get_github_issue_detail(owner: str="reggieisrunning", repo: str="PyDummyPlugin", issue_number: int=1) -> dict:
+    base_api_url = "https://api.github.com/repos/{owner}/{repo}/issues/{issue_number}".format(owner=owner, repo=repo,
+                                                                               issue_number=issue_number)
+
+    with open("../git_token", "r") as fd:
+        git_token = fd.read()
+
+    headers = {"Authorization": "token {}".format(git_token)}
+
+    rsp = requests.get(base_api_url, headers=headers)
+    rst = rsp.json()
+    return rst
+
+
 if __name__ == '__main__':
 
-    print(get_github_issue_list())
+    issue_list = (get_github_issue_list(owner="Tencent", repo="bk-ci", state="all"))
+    # issue_list = [{"issue_number": 1835}]
+    the_issue_detail_dict = {}
+    with open("/Users/lianjiezhou/Downloads/issue_detail.txt", "a") as fd:
+        for item in issue_list:
+            issue_number = item["issue_number"]
+            print(issue_number)
+            the_issue_detail_dict[issue_number] = get_github_issue_detail(owner="Tencent", repo="bk-ci", issue_number=issue_number)
+            fd.write(json.dumps(the_issue_detail_dict[issue_number]))
+            fd.write("\n")
+
+
+
+
 
     """
     filter_list = [

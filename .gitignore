@@ -131,3 +131,4 @@ dmypy.json
 .idea/
 email/
 git_token
+tapd_auth.yml
