@@ -21,6 +21,7 @@ def get_tapd_stories_list(workspace_id: int=20357512, **kwargs) -> dict:
 
     rsp = requests.get(tapd_base_url, auth=basic, params=params)
     rst = rsp.json()
+    print("")
     return rst
 
 if __name__ == '__main__':
