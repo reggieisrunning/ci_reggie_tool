@@ -82,7 +82,6 @@ if __name__ == '__main__':
         for item in issue_list:
             issue_number = item["issue_number"]
             print(issue_number)
-            print(issue_number)
             the_issue_detail_dict[issue_number] = get_github_issue_detail(owner="Tencent", repo="bk-ci", issue_number=issue_number)
             fd.write(json.dumps(the_issue_detail_dict[issue_number]))
             fd.write("\n")
