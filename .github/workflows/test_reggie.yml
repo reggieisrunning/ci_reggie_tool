@@ -16,6 +16,12 @@ on:
         # Input has to be provided for the workflow to run
         required: true
 
+    inputs:
+      name:
+        description: "abc"
+        default: "hello"
+        required: false
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "greet"
