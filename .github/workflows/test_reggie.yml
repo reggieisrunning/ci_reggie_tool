@@ -44,4 +44,4 @@ jobs:
       run: |
         echo "i'm running"
       shell: bash
-      if: ${{ MY_VAR == MY_VAR1 }}
+      if: ${{ $MY_VAR == $MY_VAR1 }}
