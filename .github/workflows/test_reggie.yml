@@ -32,17 +32,15 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Runs a single command using the runners shell
-      - name: No 2
-      run: |
-        echo "i'm running"
-        echo "dddfdfs"
-      shell: bash
-      if: ${{ env.MY_VAR == env.MY_VAR1 }}
-
-      - name: Send greeting
+    - name: Send greeting
       run: |
         env
         echo "${MY_VAR}"
         echo "Hello ${{ github.event.inputs.name }}"
       shell: bash
 
+    - name: No 2
+      run: |
+        echo "i'm running"
+      shell: bash
+      if: ${{ env.MY_VAR > env.MY_VAR1 }}
