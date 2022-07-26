@@ -27,7 +27,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     env:
-      MY_VAR: h
+      MY_VAR: a
       MY_VAR1: h
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -44,4 +44,4 @@ jobs:
       run: |
         echo "i'm running"
       shell: bash
-      if: ${{ env.MY_VAR == env.MY_VAR1 }}
+      if: ${{ env.MY_VAR > env.MY_VAR1 }}
