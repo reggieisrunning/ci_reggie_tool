@@ -35,8 +35,9 @@ jobs:
       - name: No 2
       run: |
         echo "i'm running"
+        echo "dddfdfs"
       shell: bash
-      if: ${{ env.MY_VAR > env.MY_VAR1 }}
+      if: ${{ env.MY_VAR == env.MY_VAR1 }}
 
       - name: Send greeting
       run: |
