@@ -37,7 +37,7 @@ jobs:
         env
         echo "${MY_VAR}"
         echo "Hello ${{ github.event.inputs.name }}"
-        echo ${{fromJSON(inputs.name)[0]}}
+        echo ${{fromJSON(inputs.name)}}[0]
       shell: bash
 
     - name: No 2
