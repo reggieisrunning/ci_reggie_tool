@@ -37,7 +37,7 @@ jobs:
         env
         echo "${MY_VAR}"
         echo "Hello ${{ inputs.name }}"
-        echo ${{ fromJSON(inputs.name)[4] }}
+        echo ${{ fromJson(inputs.name)[4] }}
       shell: bash
 
     - name: No 2
