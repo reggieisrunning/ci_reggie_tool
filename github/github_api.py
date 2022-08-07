@@ -49,6 +49,7 @@ def get_github_issue_list(owner: str="reggieisrunning", repo: str="PyDummyPlugin
             except Exception as ex:
                 logger.exception(ex)
                 print(result)
+                print(ex)
 
 
         if len(result) < 100:
