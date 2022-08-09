@@ -23,7 +23,7 @@ class LoggerWrapper:
     def _gen_logger(self, log_name="ci_reggie_tool"):
         base_logger = logging.getLogger(log_name)
         base_logger.setLevel(LOG_LEVEL)
-
+        pass
         log_file = "{}/{}.log".format(self._get_path(), log_name)
         ch = TimedRotatingFileHandler(log_file, when='D', encoding="utf-8")
         ch.setLevel(LOG_LEVEL)
