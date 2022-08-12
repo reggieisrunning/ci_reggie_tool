@@ -31,6 +31,7 @@ class LoggerWrapper:
         ch.setFormatter(formatter)
         base_logger.addHandler(ch)
         base_logger.propagate = 0
+        print("haha")
         return base_logger
 
 logger = LoggerWrapper().logger
