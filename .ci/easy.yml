@@ -1,0 +1,10 @@
+version: v2.0
+
+variables:
+  name: ${{ ci.actor }}
+  my_var: init value
+
+steps:
+- run: |
+    echo "hello ${{ variables.name }}"
+  name: "Step1: Run a multi-line script"
