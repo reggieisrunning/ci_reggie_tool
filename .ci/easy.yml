@@ -43,4 +43,4 @@ variables:
 steps:
 - run: |
     echo "hello ${{ variables.name }}"
-  name: "Step1: Run a multi-line script"
+  name: "Step1: Run a multi-line scripts"
