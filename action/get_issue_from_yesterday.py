@@ -1,9 +1,10 @@
 import sys
+import shutil
 sys.path.append("..")
 from github import github_api
-from datetime import *
+from datetime import datetime
 from dateutil import parser
-import shutil
+
 
 if __name__ == '__main__':
 
