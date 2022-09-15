@@ -1,8 +1,8 @@
 import sys
 import shutil
 sys.path.append("..")
-from github import github_api
 from datetime import datetime
+from github import github_api
 from dateutil import parser
 
 
