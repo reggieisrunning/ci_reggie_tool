@@ -8,8 +8,8 @@ from dateutil import parser
 
 if __name__ == '__main__':
 
-    since_datetime = datetime.today().astimezone() - timedelta(days=2)
-    since_datetime2 = datetime.today().astimezone() - timedelta(days=1)
+    since_datetime = datetime.today().astimezone() - datetime.timedelta(days=2)
+    since_datetime2 = datetime.today().astimezone() - datetime.timedelta(days=1)
     # since_datetime = datetime(2022, 6, 3, 8, 0, 0, 0).astimezone() - timedelta(days=2)
     # since_datetime2 = datetime(2022, 6, 3, 8, 0, 0, 0).astimezone() - timedelta(days=1)
     print(since_datetime, since_datetime2)
