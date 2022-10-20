@@ -45,4 +45,3 @@ if __name__ == '__main__':
                 print(issue_item)
         fd.write("</body>")
         print("hehe")
-        print("hehe")
