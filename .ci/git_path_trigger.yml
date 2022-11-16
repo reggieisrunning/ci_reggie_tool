@@ -1,0 +1,19 @@
+version: v2.0
+
+on:
+  push:
+    branches: [ "*" ]
+    paths:
+      - utils
+    paths-ignore:
+      - utils/test_dir
+
+
+variables:
+  name: ${{ ci.actor }}
+  my_var: init value
+
+steps:
+- run: |
+    echo "hello ${{ variables.name }}"
+  name: "Step1: Run a multi-line scriptsss"
