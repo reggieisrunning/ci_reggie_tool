@@ -21,7 +21,7 @@ def judge_is_my(issue, label_list):
         except Exception as e:
             print("-"*30)
             print(item)
-            print("-" * 30)
+            print("-" * 2)
             raise Exception(e)
 
 
