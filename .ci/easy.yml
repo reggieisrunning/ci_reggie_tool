@@ -1,0 +1,46 @@
+version: v2.0
+
+on:
+  push:
+    branches: [ "*" ]
+  tag:
+    tags: [ "*" ]
+  mr:
+    target-branches: [ "*" ]
+  schedules:
+    cron: 0 12 * * *
+    branches: [ master ]
+  delete:
+    types:
+      - branch
+      - tag
+  issue:
+    action:
+      - open
+      - close
+      - reopen
+      - update
+  review:
+    types:
+      - comparison    # 无关联MR
+      - merge_request # 关联MR
+    states:
+      - approved
+      - approving
+      - change_denied
+      - change_required
+  note:
+    types:
+      - commit        # 对提交进行评论
+      - merge_request # 对 mr 进行评论
+      - issue         # 对缺陷进行评论
+
+
+variables:
+  name: ${{ ci.actor }}
+  my_var: init value
+
+steps:
+- run: |
+    echo "hello ${{ variables.name }}"
+  name: "Step1: Run a multi-line scriptsss"
