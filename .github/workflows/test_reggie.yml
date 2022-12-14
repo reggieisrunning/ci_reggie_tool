@@ -21,6 +21,8 @@ on:
         required: false
       time1:
         required: true
+      time2:
+        required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
