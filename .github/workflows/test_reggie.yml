@@ -51,3 +51,10 @@ jobs:
       shell: bash
       if: ${{ env.MY_VAR > env.MY_VAR1 }}
     timeout-minutes: ${{ inputs.time1 }}
+  reggie2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: aa
+        run: |
+          echo "haha"
+    timeout-minutes: ${{ inputs.time2 }}
