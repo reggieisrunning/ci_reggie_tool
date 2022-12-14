@@ -19,6 +19,8 @@ on:
         description: "abc"
         default: "helloddddxxxtag"
         required: false
+      time1:
+        required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -48,3 +50,4 @@ jobs:
         echo "i'm running"
       shell: bash
       if: ${{ env.MY_VAR > env.MY_VAR1 }}
+    timeout-minutes: ${{ inputs.time1 }}
