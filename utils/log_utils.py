@@ -32,7 +32,7 @@ class LoggerWrapper:
         base_logger.addHandler(ch)
         base_logger.propagate = 0
 
-        print("txd")
+
         return base_logger
 
 logger = LoggerWrapper().logger
