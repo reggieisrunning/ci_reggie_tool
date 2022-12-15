@@ -1,15 +1,14 @@
 import sys
-import shutil
 sys.path.append("..")
-from datetime import datetime
 from github import github_api
+from datetime import *
 from dateutil import parser
-
+import shutil
 
 if __name__ == '__main__':
 
-    since_datetime = datetime.today().astimezone() - datetime.timedelta(days=2)
-    since_datetime2 = datetime.today().astimezone() - datetime.timedelta(days=1)
+    since_datetime = datetime.today().astimezone() - timedelta(days=2)
+    since_datetime2 = datetime.today().astimezone() - timedelta(days=1)
     # since_datetime = datetime(2022, 6, 3, 8, 0, 0, 0).astimezone() - timedelta(days=2)
     # since_datetime2 = datetime(2022, 6, 3, 8, 0, 0, 0).astimezone() - timedelta(days=1)
     print(since_datetime, since_datetime2)
@@ -44,6 +43,3 @@ if __name__ == '__main__':
                 fd.write("    </tr>\n")
                 print(issue_item)
         fd.write("</body>")
-        print("hehe")
-        print("hehe")
-        print("hehe")
